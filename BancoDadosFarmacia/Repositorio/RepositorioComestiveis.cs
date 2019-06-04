@@ -17,7 +17,31 @@ namespace Repositorio
         {
             SqlConnection conexao = new SqlConnection();
             conexao.ConnectionString = CadeiaDeConexao;
-            
+            conexao.Open();
+
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexao;
+            comando.CommandText = @"SELECT * FROM comestiveis";
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+
+            List<Comestivel> comestiveis = new List<Comestivel>();
+            for (int i = 0; i < tabela.Rows.Count; i++)
+            {
+                DataRow linha = tabela.Rows[i];
+                Comestivel comestivel = new Comestivel();
+
+                comestivel.Id = Convert.ToInt32(linha["id"]);
+                comestivel.Nome = linha["nome"].ToString();
+                comestivel.Preco = Convert.ToDecimal(linha["preco"]);
+                comestivel.Marca = linha["marca"].ToString();
+                comestivel.Quantidade = Convert.ToInt32(linha["quantidade"]);
+                comestivel.dataVencimento = Convert.ToDateTime(linha["data_vencimento"]);
+
+                comestiveis.Add(comestivel);
+
+            }
+            return comestiveis;            
         }
 
         public void Inserir(Comestivel comestivel)

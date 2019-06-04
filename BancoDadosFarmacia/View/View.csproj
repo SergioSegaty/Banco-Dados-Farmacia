@@ -46,14 +46,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="CadastroComestiveis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="CadastroComestiveis.Designer.cs">
+      <DependentUpon>CadastroComestiveis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaComestiveis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaComestiveis.Designer.cs">
+      <DependentUpon>ListaComestiveis.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CadastroComestiveis.resx">
+      <DependentUpon>CadastroComestiveis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaComestiveis.resx">
+      <DependentUpon>ListaComestiveis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,6 +87,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{abf927d2-303e-41f6-8089-082ee2c1be28}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repositorio\Repositorio.csproj">
+      <Project>{dbf0a2cd-f362-429d-ae1c-4b1b0beff3f6}</Project>
+      <Name>Repositorio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
