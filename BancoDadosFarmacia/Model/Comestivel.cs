@@ -11,7 +11,7 @@ namespace Model
         public int Id;
         public string Nome;
         public decimal Preco;
-        public DateTime dataVencimento;
+        public DateTime DataVencimento;
         public int Quantidade;
         public string Marca;
     }
