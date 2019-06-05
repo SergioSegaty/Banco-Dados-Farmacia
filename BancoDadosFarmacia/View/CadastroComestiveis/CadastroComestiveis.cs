@@ -10,32 +10,23 @@ using System.Windows.Forms;
 using Model;
 using Repositorio;
 
-namespace View
+namespace View.CadastroComestiveis
 {
-    public partial class CadastroAlterar : Form
+    public partial class CadastroComestiveis : Form
     {
-        public CadastroAlterar()
+        public CadastroComestiveis()
         {
             InitializeComponent();
         }
 
-        public CadastroAlterar(Comestivel comesestivel)
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-
-            txtNome.Text = comesestivel.Nome;
-            txtMarca.Text = comesestivel.Marca;
-            txtPreco.Text = Convert.ToString(comesestivel.Preco);
-            txtQuantidade.Text = comesestivel.Quantidade.ToString();
-            lblID.Text = comesestivel.Id.ToString();
-            dtpDataVencimento.Value = comesestivel.DataVencimento;
+            SalvarRegistro();
         }
 
         private void SalvarRegistro()
         {
             Comestivel comestivel = new Comestivel();
-
-            comestivel.Id = Convert.ToInt32(lblID.Text);
 
             comestivel.Nome = txtNome.Text;
             if (comestivel.Nome.Length < 3)
@@ -99,14 +90,13 @@ namespace View
             }
 
             RepositorioComestiveis repositorio = new RepositorioComestiveis();
-            repositorio.AtualizarRegistro(comestivel);
-            Close();
+            repositorio.Inserir(comestivel);
 
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private void DtpDataVencimento_DropDown(object sender, EventArgs e)
         {
-            SalvarRegistro();
+            throw new NotImplementedException();
         }
     }
 }

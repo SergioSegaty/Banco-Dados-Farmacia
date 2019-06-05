@@ -1,4 +1,4 @@
-﻿namespace View
+﻿namespace View.CadastroComestiveis
 {
     partial class CadastroAlterar
     {
