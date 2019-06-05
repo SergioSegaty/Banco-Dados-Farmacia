@@ -53,7 +53,13 @@ namespace View
 
         private void dgvListaComestiveis_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            int id = Convert.ToInt32(dgvListaComestiveis.CurrentRow.Cells[0].Value);
+
+            RepositorioComestiveis repositorio = new RepositorioComestiveis();
+            Comestivel comestivel = repositorio.ObterPeloId(id);
+
+            CadastroAlterar cadastroAlterar = new CadastroAlterar(comestivel);
+            cadastroAlterar.ShowDialog();
         }
 
         private void btnDeletar_Click(object sender, EventArgs e)
