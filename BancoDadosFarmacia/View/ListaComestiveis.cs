@@ -29,7 +29,7 @@ namespace View
         public void AtualizarTabela()
         {
             RepositorioComestiveis repositorio = new RepositorioComestiveis();
-            List<Comestivel> comestiveis = new List<Comestivel>();
+            List<Comestivel> comestiveis = repositorio.ObterTodos();
             dgvListaComestiveis.Rows.Clear();
 
             for (int i = 0; i < comestiveis.Count; i++)
@@ -37,12 +37,37 @@ namespace View
                 Comestivel comestivel = comestiveis[i];
                 decimal precoTotal = comestivel.Preco * comestivel.Quantidade;
                 string precoTotalTexto = $"R$: {precoTotal}";
+                string precoTexto = $"R$: {comestivel.Preco}";
 
                 dgvListaComestiveis.Rows.Add(new object[]
                 {
-                    comestivel.Id, comestivel.Nome, comestivel.Marca, comestivel.Preco, comestivel.Quantidade, precoTotalTexto
+                    comestivel.Id, comestivel.Nome, comestivel.Marca, precoTexto, comestivel.Quantidade, precoTotalTexto
                 });
             }
+        }
+
+        private void ListaComestiveis_Activated(object sender, EventArgs e)
+        {
+            AtualizarTabela();
+        }
+
+        private void dgvListaComestiveis_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+            ApagarDaLista();
+        }
+
+        private void ApagarDaLista()
+        {
+            int id = Convert.ToInt32(dgvListaComestiveis.CurrentRow.Cells[0].Value);
+            RepositorioComestiveis repositorio = new RepositorioComestiveis();
+            repositorio.Deletar(id);
+            AtualizarTabela();
+
         }
     }
 }

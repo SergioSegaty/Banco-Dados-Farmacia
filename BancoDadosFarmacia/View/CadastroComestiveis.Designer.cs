@@ -65,7 +65,7 @@
             this.lblCodigo.Location = new System.Drawing.Point(283, 12);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(43, 13);
-            this.lblCodigo.TabIndex = 0;
+            this.lblCodigo.TabIndex = 11;
             this.lblCodigo.Text = "Código:";
             // 
             // lblID
@@ -74,7 +74,7 @@
             this.lblID.Location = new System.Drawing.Point(324, 12);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(13, 13);
-            this.lblID.TabIndex = 0;
+            this.lblID.TabIndex = 12;
             this.lblID.Text = "0";
             // 
             // lblMarca
@@ -83,7 +83,7 @@
             this.lblMarca.Location = new System.Drawing.Point(32, 77);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(37, 13);
-            this.lblMarca.TabIndex = 0;
+            this.lblMarca.TabIndex = 2;
             this.lblMarca.Text = "Marca";
             // 
             // txtMarca
@@ -91,7 +91,7 @@
             this.txtMarca.Location = new System.Drawing.Point(35, 94);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(139, 20);
-            this.txtMarca.TabIndex = 1;
+            this.txtMarca.TabIndex = 3;
             // 
             // lblDataVencimento
             // 
@@ -99,7 +99,7 @@
             this.lblDataVencimento.Location = new System.Drawing.Point(135, 143);
             this.lblDataVencimento.Name = "lblDataVencimento";
             this.lblDataVencimento.Size = new System.Drawing.Size(104, 13);
-            this.lblDataVencimento.TabIndex = 0;
+            this.lblDataVencimento.TabIndex = 8;
             this.lblDataVencimento.Text = "Data de Vencimento";
             // 
             // dtpDataVencimento
@@ -108,7 +108,7 @@
             this.dtpDataVencimento.Location = new System.Drawing.Point(118, 159);
             this.dtpDataVencimento.Name = "dtpDataVencimento";
             this.dtpDataVencimento.Size = new System.Drawing.Size(139, 20);
-            this.dtpDataVencimento.TabIndex = 3;
+            this.dtpDataVencimento.TabIndex = 9;
             // 
             // lblPreco
             // 
@@ -116,7 +116,7 @@
             this.lblPreco.Location = new System.Drawing.Point(195, 39);
             this.lblPreco.Name = "lblPreco";
             this.lblPreco.Size = new System.Drawing.Size(35, 13);
-            this.lblPreco.TabIndex = 0;
+            this.lblPreco.TabIndex = 4;
             this.lblPreco.Text = "Preço";
             // 
             // txtPreco
@@ -124,7 +124,7 @@
             this.txtPreco.Location = new System.Drawing.Point(198, 55);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(139, 20);
-            this.txtPreco.TabIndex = 1;
+            this.txtPreco.TabIndex = 5;
             // 
             // lblQuantidade
             // 
@@ -132,7 +132,7 @@
             this.lblQuantidade.Location = new System.Drawing.Point(195, 78);
             this.lblQuantidade.Name = "lblQuantidade";
             this.lblQuantidade.Size = new System.Drawing.Size(62, 13);
-            this.lblQuantidade.TabIndex = 0;
+            this.lblQuantidade.TabIndex = 6;
             this.lblQuantidade.Text = "Quantidade";
             // 
             // txtQuantidade
@@ -140,7 +140,7 @@
             this.txtQuantidade.Location = new System.Drawing.Point(198, 94);
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(139, 20);
-            this.txtQuantidade.TabIndex = 1;
+            this.txtQuantidade.TabIndex = 7;
             // 
             // btnSalvar
             // 
@@ -149,7 +149,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(149, 193);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 28);
-            this.btnSalvar.TabIndex = 4;
+            this.btnSalvar.TabIndex = 10;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);

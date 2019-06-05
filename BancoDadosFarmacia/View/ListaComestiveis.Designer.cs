@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.dgvListaComestiveis = new System.Windows.Forms.DataGridView();
-            this.btnDeletar = new System.Windows.Forms.Button();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnQuantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDeletar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaComestiveis)).BeginInit();
             this.SuspendLayout();
@@ -59,17 +59,7 @@
             this.dgvListaComestiveis.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaComestiveis.Size = new System.Drawing.Size(455, 240);
             this.dgvListaComestiveis.TabIndex = 0;
-            // 
-            // btnDeletar
-            // 
-            this.btnDeletar.BackColor = System.Drawing.Color.Salmon;
-            this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeletar.Location = new System.Drawing.Point(255, 258);
-            this.btnDeletar.Name = "btnDeletar";
-            this.btnDeletar.Size = new System.Drawing.Size(72, 36);
-            this.btnDeletar.TabIndex = 1;
-            this.btnDeletar.Text = "Deletar";
-            this.btnDeletar.UseVisualStyleBackColor = false;
+            this.dgvListaComestiveis.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaComestiveis_CellDoubleClick);
             // 
             // ColumnId
             // 
@@ -109,6 +99,18 @@
             this.ColumnValorTotal.Name = "ColumnValorTotal";
             this.ColumnValorTotal.ReadOnly = true;
             // 
+            // btnDeletar
+            // 
+            this.btnDeletar.BackColor = System.Drawing.Color.Salmon;
+            this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeletar.Location = new System.Drawing.Point(255, 258);
+            this.btnDeletar.Name = "btnDeletar";
+            this.btnDeletar.Size = new System.Drawing.Size(72, 36);
+            this.btnDeletar.TabIndex = 1;
+            this.btnDeletar.Text = "Deletar";
+            this.btnDeletar.UseVisualStyleBackColor = false;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
+            // 
             // btnCadastrar
             // 
             this.btnCadastrar.BackColor = System.Drawing.Color.LightGreen;
@@ -131,6 +133,7 @@
             this.Controls.Add(this.dgvListaComestiveis);
             this.Name = "ListaComestiveis";
             this.Text = "ListaComestiveis";
+            this.Activated += new System.EventHandler(this.ListaComestiveis_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaComestiveis)).EndInit();
             this.ResumeLayout(false);
 

@@ -40,6 +40,7 @@ namespace View
 
             RepositorioComestiveis repositorio = new RepositorioComestiveis();
             repositorio.Inserir(comestivel);
+            
 
             
         }

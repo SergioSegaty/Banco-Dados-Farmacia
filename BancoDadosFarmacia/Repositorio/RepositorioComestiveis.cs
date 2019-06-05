@@ -11,7 +11,7 @@ namespace Repositorio
 {
     public class RepositorioComestiveis
     {
-        string CadeiaDeConexao = @"";
+        string CadeiaDeConexao = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\62110\Documents\ExemploDB02.mdf;Integrated Security=True;Connect Timeout=30";
 
         public List<Comestivel> ObterTodos()
         {
@@ -54,14 +54,14 @@ namespace Repositorio
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexao;
             comando.CommandText = @"INSERT INTO comestiveis
-            (nome, preco, data_nascimento, quantidade, marca)
+            (nome, preco, data_vencimento, quantidade, marca)
 
             VALUES
-            (@NOME, @PRECO, @DATA_NASCIMENTO, @QUANTIDADE, @MARCA)";
+            (@NOME, @PRECO, @DATA_VENCIMENTO, @QUANTIDADE, @MARCA)";
 
             comando.Parameters.AddWithValue("@NOME", comestivel.Nome);
             comando.Parameters.AddWithValue("@PRECO", comestivel.Preco);
-            comando.Parameters.AddWithValue("@DATA_NASCIMENTO", comestivel.dataVencimento);
+            comando.Parameters.AddWithValue("@DATA_VENCIMENTO", comestivel.dataVencimento);
             comando.Parameters.AddWithValue("@QUANTIDADE", comestivel.Quantidade);
             comando.Parameters.AddWithValue("@MARCA", comestivel.Marca);
 
