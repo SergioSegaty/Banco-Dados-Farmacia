@@ -173,6 +173,7 @@
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.lblNome);
             this.Name = "CadastroAlterar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CadastroAlterar";
             this.ResumeLayout(false);
             this.PerformLayout();

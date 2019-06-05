@@ -132,6 +132,7 @@
             this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.dgvListaComestiveis);
             this.Name = "ListaComestiveis";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ListaComestiveis";
             this.Activated += new System.EventHandler(this.ListaComestiveis_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaComestiveis)).EndInit();

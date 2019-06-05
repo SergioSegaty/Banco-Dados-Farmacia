@@ -173,6 +173,7 @@
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.lblNome);
             this.Name = "CadastroComestiveis";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Guloseimas";
             this.ResumeLayout(false);
             this.PerformLayout();
