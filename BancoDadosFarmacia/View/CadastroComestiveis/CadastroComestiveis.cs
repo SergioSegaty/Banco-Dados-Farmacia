@@ -91,6 +91,7 @@ namespace View.CadastroComestiveis
 
             RepositorioComestiveis repositorio = new RepositorioComestiveis();
             repositorio.Inserir(comestivel);
+            Close();
 
         }
 

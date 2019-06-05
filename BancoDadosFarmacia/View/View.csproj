@@ -46,34 +46,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CadastroAlterar.cs">
+    <Compile Include="CadastroComestiveis\CadastroAlterar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CadastroAlterar.Designer.cs">
+    <Compile Include="CadastroComestiveis\CadastroAlterar.Designer.cs">
       <DependentUpon>CadastroAlterar.cs</DependentUpon>
     </Compile>
-    <Compile Include="CadastroComestiveis.cs">
+    <Compile Include="CadastroComestiveis\CadastroComestiveis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CadastroComestiveis.Designer.cs">
+    <Compile Include="CadastroComestiveis\CadastroComestiveis.Designer.cs">
       <DependentUpon>CadastroComestiveis.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListaComestiveis.cs">
+    <Compile Include="CadastroComestiveis\ListaComestiveis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ListaComestiveis.Designer.cs">
+    <Compile Include="CadastroComestiveis\ListaComestiveis.Designer.cs">
       <DependentUpon>ListaComestiveis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastroProdutosHigiene\ListaProdutosHigiene.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroProdutosHigiene\ListaProdutosHigiene.Designer.cs">
+      <DependentUpon>ListaProdutosHigiene.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CadastroAlterar.resx">
+    <EmbeddedResource Include="CadastroComestiveis\CadastroAlterar.resx">
       <DependentUpon>CadastroAlterar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CadastroComestiveis.resx">
+    <EmbeddedResource Include="CadastroComestiveis\CadastroComestiveis.resx">
       <DependentUpon>CadastroComestiveis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ListaComestiveis.resx">
+    <EmbeddedResource Include="CadastroComestiveis\ListaComestiveis.resx">
       <DependentUpon>ListaComestiveis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroProdutosHigiene\ListaProdutosHigiene.resx">
+      <DependentUpon>ListaProdutosHigiene.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
