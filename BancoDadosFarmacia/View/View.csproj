@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadastroAlterar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroAlterar.Designer.cs">
+      <DependentUpon>CadastroAlterar.cs</DependentUpon>
+    </Compile>
     <Compile Include="CadastroComestiveis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CadastroAlterar.resx">
+      <DependentUpon>CadastroAlterar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CadastroComestiveis.resx">
       <DependentUpon>CadastroComestiveis.cs</DependentUpon>
     </EmbeddedResource>
