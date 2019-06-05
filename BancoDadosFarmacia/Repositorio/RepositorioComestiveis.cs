@@ -36,7 +36,7 @@ namespace Repositorio
                 comestivel.Preco = Convert.ToDecimal(linha["preco"]);
                 comestivel.Marca = linha["marca"].ToString();
                 comestivel.Quantidade = Convert.ToInt32(linha["quantidade"]);
-                comestivel.dataVencimento = Convert.ToDateTime(linha["data_vencimento"]);
+                comestivel.DataVencimento = Convert.ToDateTime(linha["data_vencimento"]);
 
                 comestiveis.Add(comestivel);
 
@@ -61,7 +61,7 @@ namespace Repositorio
 
             comando.Parameters.AddWithValue("@NOME", comestivel.Nome);
             comando.Parameters.AddWithValue("@PRECO", comestivel.Preco);
-            comando.Parameters.AddWithValue("@DATA_VENCIMENTO", comestivel.dataVencimento);
+            comando.Parameters.AddWithValue("@DATA_VENCIMENTO", comestivel.DataVencimento);
             comando.Parameters.AddWithValue("@QUANTIDADE", comestivel.Quantidade);
             comando.Parameters.AddWithValue("@MARCA", comestivel.Marca);
 
@@ -87,7 +87,7 @@ namespace Repositorio
 
         public Comestivel ObterPeloId(int id)
         {
-
+                       
             SqlConnection conexao = new SqlConnection();
             conexao.ConnectionString = CadeiaDeConexao;
             conexao.Open();
@@ -111,13 +111,39 @@ namespace Repositorio
                 comestivel.Nome = Convert.ToString(linha["nome"]);
                 comestivel.Marca = (linha["marca"].ToString());
                 comestivel.Quantidade = Convert.ToInt32(linha["quantidade"]);
-                comestivel.dataVencimento = Convert.ToDateTime(linha["data_vencimento"]);
-                comestivel.Preco = Convert.ToInt32(linha["preco"]);
+                comestivel.DataVencimento = Convert.ToDateTime(linha["data_vencimento"]);
+                comestivel.Preco = Convert.ToDecimal(linha["preco"]);
 
                 return comestivel;
             }
             return null;
         }
 
+        public void AtualizarRegistro(Comestivel comestivel)
+        {
+            SqlConnection conexao = new SqlConnection();
+            conexao.ConnectionString = CadeiaDeConexao;
+            conexao.Open();
+
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexao;
+            comando.CommandText = @"UPDATE comestiveis SET
+            nome = @NOME,
+            marca = @MARCA,
+            preco = @PRECO,
+            quantidade = @QUANTIDADE,
+            data_vencimento = @DATA_VENCIMENTO
+            WHERE id = @ID";
+
+            comando.Parameters.AddWithValue("@NOME", comestivel.Nome);
+            comando.Parameters.AddWithValue("@MARCA", comestivel.Marca);
+            comando.Parameters.AddWithValue("@PRECO", comestivel.Preco);
+            comando.Parameters.AddWithValue("@QUANTIDADE", comestivel.Quantidade);
+            comando.Parameters.AddWithValue("@DATA_VENCIMENTO", comestivel.DataVencimento);
+            comando.Parameters.AddWithValue("@ID", comestivel.Id);
+
+            comando.ExecuteNonQuery();
+            conexao.Close();
+        }
     }
 }
