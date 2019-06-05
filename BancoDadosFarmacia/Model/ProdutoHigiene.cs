@@ -12,6 +12,6 @@ namespace Model
         public int ID;
         public string Nome;
         public string Categoria;
-        public string Preco;
+        public decimal Preco;
     }
 }

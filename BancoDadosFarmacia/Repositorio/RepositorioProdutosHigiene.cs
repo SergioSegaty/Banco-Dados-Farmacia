@@ -9,7 +9,7 @@ using Model;
 
 namespace Repositorio
 {
-    class RepositorioProdutosHigiene
+   public class RepositorioProdutosHigiene
     {
         string CadeiaDeConexao = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\62110\Documents\ExemploDB02.mdf;Integrated Security=True;Connect Timeout=30";
 
@@ -35,7 +35,6 @@ namespace Repositorio
             comando.ExecuteNonQuery();
             conexao.Close();
         }
-
         public List<ProdutoHigiene> ObterTodos()
         {
             SqlConnection conexao = new SqlConnection();
@@ -47,10 +46,69 @@ namespace Repositorio
             comando.CommandText = @"SELECT * FROM produtos_higiene";
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
+            List<ProdutoHigiene> listaProdutos = new List<ProdutoHigiene>();
 
+            for (int i = 0; i < tabela.Rows.Count; i++)
+            {
+                DataRow row = tabela.Rows[i];
+                ProdutoHigiene produto = new ProdutoHigiene();
+
+                produto.ID = Convert.ToInt32(row["id"]);
+                produto.Nome = row["nome"].ToString();
+                produto.Categoria = row["categoria"].ToString();
+                produto.Preco = Convert.ToDecimal(row["preco"]);
+                listaProdutos.Add(produto);
+
+            }
+            return listaProdutos;
 
         }
+        public ProdutoHigiene ObterPeloId(int id)
+        {
+            SqlConnection conexao = new SqlConnection();
+            conexao.ConnectionString = CadeiaDeConexao;
+            conexao.Open();
 
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexao;
+            comando.CommandText = @"SELECT * FROM produtos_higiene WHERE id = @ID";
 
+            comando.Parameters.AddWithValue("@ID", id);
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            if (tabela.Rows.Count == 1)
+            {
+                DataRow row = tabela.Rows[0];
+                ProdutoHigiene produto = new ProdutoHigiene();
+
+                produto.ID = Convert.ToInt32(row["id"]);
+                produto.Nome = row["nome"].ToString();
+                produto.Preco = Convert.ToDecimal(row["preco"]);
+                produto.Categoria = row["categoria"].ToString();
+
+                return produto;
+                
+            }
+
+            return null;
+        }
+        public void Deletar(int id)
+        {
+            SqlConnection conexao = new SqlConnection();
+            conexao.ConnectionString = CadeiaDeConexao;
+            conexao.Open();
+
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexao;
+            comando.CommandText = @"DELETE from produtos_higiene
+            WHERE id = @ID";
+            comando.Parameters.AddWithValue("@ID", id);
+            comando.ExecuteNonQuery();
+            conexao.Close();
+        }
+        public void Atualizar(ProdutoHigiene produto)
+        {
+            
+        }
     }
 }
