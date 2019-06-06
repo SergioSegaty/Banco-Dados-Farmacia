@@ -29,6 +29,8 @@ namespace View.CadastroRemedios
             txtPreco.Text = remedio.Preco.ToString();
             cbCategoria.Text = remedio.Categoria;
             cbFaixa.Text = remedio.Faixa;
+            string bulaTexto = remedio.ContraIndicacoes.ToString();
+            rtbBula.Text = bulaTexto;
             if (remedio.Generico == true)
             {
                 ckbGenerico.Checked = true;

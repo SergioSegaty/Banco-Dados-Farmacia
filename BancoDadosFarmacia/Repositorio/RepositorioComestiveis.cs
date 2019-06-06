@@ -6,12 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
+using Repositorio;
 
 namespace Repositorio
 {
     public class RepositorioComestiveis
     {
-        string CadeiaDeConexao = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\62110\Documents\ExemploDB02.mdf;Integrated Security=True;Connect Timeout=30";
+        Servidor servidor = new Servidor();
+
+        string CadeiaDeConexao = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\user\Documents\Seek3r_Home.mdf;Integrated Security = True; Connect Timeout = 30";
 
         public List<Comestivel> ObterTodos()
         {
@@ -101,7 +104,7 @@ namespace Repositorio
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
             conexao.Close();
-            for (int i = 0; i < tabela.Rows.Count; i++)
+            if (tabela.Rows.Count == 1)
             {
                 DataRow linha = tabela.Rows[0];
                 Comestivel comestivel = new Comestivel();
@@ -114,7 +117,7 @@ namespace Repositorio
                 comestivel.Preco = Convert.ToDecimal(linha["preco"]);
 
                 return comestivel;
-            }
+            }            
             return null;
         }
 

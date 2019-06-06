@@ -11,8 +11,8 @@ namespace Repositorio
 {
     public class RepositorioRemedios
     {
-        string CadeiaDeConexao = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\62110\Documents\ExemploDB02.mdf;Integrated Security=True;Connect Timeout=30";
-        public void InserirRegistro(Remedio remedios)
+        string CadeiaDeConexao = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\user\Documents\Seek3r_Home.mdf;Integrated Security = True; Connect Timeout = 30";
+        public void InserirRegistro(Remedio remedio)
         {
             SqlConnection conexao = new SqlConnection();
             conexao.ConnectionString = CadeiaDeConexao;
@@ -26,14 +26,14 @@ namespace Repositorio
             VALUES
             (@NOME, @CATEGORIA, @FAIXA, @CONTRA_INDICACAO, @PRECO, @GENERICO, @SOLIDO, @RECEITA)";
 
-            comando.Parameters.AddWithValue("@NOME", remedios.Nome);
-            comando.Parameters.AddWithValue("@CATEGORIA", remedios.Categoria);
-            comando.Parameters.AddWithValue("@FAIXA", remedios.Faixa);
-            comando.Parameters.AddWithValue("@CONTRA_INDICACAO", remedios.ContraIndicacoes);
-            comando.Parameters.AddWithValue("@PRECO", remedios.Preco);
-            comando.Parameters.AddWithValue("@GENERICO", remedios.Generico);
-            comando.Parameters.AddWithValue("@SOLIDO", remedios.Solido);
-            comando.Parameters.AddWithValue("@RECEITA", remedios.Receita);
+            comando.Parameters.AddWithValue("@NOME", remedio.Nome);
+            comando.Parameters.AddWithValue("@CATEGORIA", remedio.Categoria);
+            comando.Parameters.AddWithValue("@FAIXA", remedio.Faixa);
+            comando.Parameters.AddWithValue("@CONTRA_INDICACAO", remedio.ContraIndicacoes);
+            comando.Parameters.AddWithValue("@PRECO", remedio.Preco);
+            comando.Parameters.AddWithValue("@GENERICO", remedio.Generico);
+            comando.Parameters.AddWithValue("@SOLIDO", remedio.Solido);
+            comando.Parameters.AddWithValue("@RECEITA", remedio.Receita);
 
             comando.ExecuteNonQuery();
             conexao.Close();
@@ -120,6 +120,7 @@ namespace Repositorio
                 remedio.Receita = Convert.ToBoolean(row["receita"]);
                 remedio.Solido = Convert.ToBoolean(row["solido"]);
                 remedio.Generico = Convert.ToBoolean(row["generico"]);
+                remedio.ContraIndicacoes = row["contra_indicacao"].ToString();
 
                 return remedio;
             }
@@ -129,7 +130,38 @@ namespace Repositorio
 
         public void AlterarRegistro(Remedio remedio)
         {
-            
+
+            SqlConnection conexao = new SqlConnection();
+            conexao.ConnectionString = CadeiaDeConexao;
+            conexao.Open();
+
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexao;
+            comando.CommandText = @"UPDATE produtos_remedios SET
+            nome = @NOME,
+            preco = @PRECO,
+            categoria = @CATEGORIA,
+            faixa = @FAIXA,
+            contra_indicacao = @CONTRA_INDICACAO,
+            generico = @GENERICO,
+            solido = @SOLIDO,
+            receita = @RECEITA
+
+            WHERE id = @ID";
+
+            comando.Parameters.AddWithValue("@NOME", remedio.Nome);
+            comando.Parameters.AddWithValue("@CATEGORIA", remedio.Categoria);
+            comando.Parameters.AddWithValue("@FAIXA", remedio.Faixa);
+            comando.Parameters.AddWithValue("@CONTRA_INDICACAO", remedio.ContraIndicacoes);
+            comando.Parameters.AddWithValue("@PRECO", remedio.Preco);
+            comando.Parameters.AddWithValue("@GENERICO", remedio.Generico);
+            comando.Parameters.AddWithValue("@SOLIDO", remedio.Solido);
+            comando.Parameters.AddWithValue("@RECEITA", remedio.Receita);
+            comando.Parameters.AddWithValue("@ID", remedio.ID);
+
+            comando.ExecuteNonQuery();
+            conexao.Close();
         }
+
     }
 }

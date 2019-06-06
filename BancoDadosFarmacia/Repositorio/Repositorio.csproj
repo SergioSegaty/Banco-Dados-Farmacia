@@ -45,6 +45,7 @@
     <Compile Include="RepositorioComestiveis.cs" />
     <Compile Include="RepositorioProdutosHigiene.cs" />
     <Compile Include="RepositorioRemedios.cs" />
+    <Compile Include="Servidor.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
