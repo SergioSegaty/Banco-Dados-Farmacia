@@ -17,7 +17,7 @@ namespace View.CadastroComestiveis
         public ListaComestiveis()
         {
             InitializeComponent();
-            
+
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -69,10 +69,24 @@ namespace View.CadastroComestiveis
 
         private void ApagarDaLista()
         {
+
+            if (dgvListaComestiveis.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("É preciso selecionar uma linha antes");
+                return;
+            }
             int id = Convert.ToInt32(dgvListaComestiveis.CurrentRow.Cells[0].Value);
             RepositorioComestiveis repositorio = new RepositorioComestiveis();
-            repositorio.Deletar(id);
-            AtualizarTabela();
+
+            DialogResult resultado = MessageBox.Show("Você tem certeza?", "AVISO",
+                MessageBoxButtons.YesNo);
+            if (resultado == DialogResult.Yes)
+            {
+                repositorio.Deletar(id);
+                AtualizarTabela();
+
+            }
+
 
         }
     }

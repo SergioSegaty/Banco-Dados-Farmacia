@@ -60,6 +60,13 @@ namespace View.CadastroProdutosHigiene
 
         private void btnDeletar_Click(object sender, EventArgs e)
         {
+
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("É preciso selecionar uma linha antes");
+                return;
+
+            }
             int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
 
             RepositorioProdutosHigiene repositorio = new RepositorioProdutosHigiene();
