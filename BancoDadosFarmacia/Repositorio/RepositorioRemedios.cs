@@ -26,7 +26,7 @@ namespace Repositorio
             VALUES
             (@NOME, @CATEGORIA, @FAIXA, @CONTRA_INDICACAO, @PRECO, @GENERICO, @SOLIDO, @RECEITA)";
 
-            comando.Parameters.AddWithValue("@NOME",remedios.Nome);
+            comando.Parameters.AddWithValue("@NOME", remedios.Nome);
             comando.Parameters.AddWithValue("@CATEGORIA", remedios.Categoria);
             comando.Parameters.AddWithValue("@FAIXA", remedios.Faixa);
             comando.Parameters.AddWithValue("@CONTRA_INDICACAO", remedios.ContraIndicacoes);
@@ -36,7 +36,7 @@ namespace Repositorio
             comando.Parameters.AddWithValue("@RECEITA", remedios.Receita);
 
             comando.ExecuteNonQuery();
-            conexao.Close();            
+            conexao.Close();
 
         }
 
@@ -71,6 +71,65 @@ namespace Repositorio
                 remedios.Add(remedio);
             }
             return remedios;
+        }
+
+        public void Deletar(int id)
+        {
+            SqlConnection conexao = new SqlConnection();
+            conexao.ConnectionString = CadeiaDeConexao;
+            conexao.Open();
+
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexao;
+            comando.CommandText = @"DELETE FROM produtos_remedios
+            WHERE id = @ID";
+
+            comando.Parameters.AddWithValue("@ID", id);
+
+
+            comando.ExecuteNonQuery();
+            conexao.Close();
+
+        }
+
+        public Remedio ObterPeloID(int id)
+        {
+            SqlConnection conexao = new SqlConnection();
+            conexao.ConnectionString = CadeiaDeConexao;
+            conexao.Open();
+
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexao;
+            comando.CommandText = @"SELECT * FROM produtos_remedios
+            WHERE id = @ID";
+            comando.Parameters.AddWithValue("@ID", id);
+
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            conexao.Close();
+            if (tabela.Rows.Count == 1)
+            {
+                Remedio remedio = new Remedio();
+                DataRow row = tabela.Rows[0];
+
+                remedio.ID = Convert.ToInt32(row["id"]);
+                remedio.Nome = row["nome"].ToString();
+                remedio.Preco = Convert.ToDecimal(row["preco"]);
+                remedio.Categoria = row["categoria"].ToString();
+                remedio.Faixa = row["faixa"].ToString();
+                remedio.Receita = Convert.ToBoolean(row["receita"]);
+                remedio.Solido = Convert.ToBoolean(row["solido"]);
+                remedio.Generico = Convert.ToBoolean(row["generico"]);
+
+                return remedio;
+            }
+            return null;
+
+        }
+
+        public void AlterarRegistro(Remedio remedio)
+        {
+
         }
     }
 }

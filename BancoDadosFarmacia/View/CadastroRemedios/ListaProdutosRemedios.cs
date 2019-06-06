@@ -57,5 +57,23 @@ namespace View.CadastroRemedios
             CadastroProdutoRemedios produtoRemedios = new CadastroProdutoRemedios();
             produtoRemedios.ShowDialog();
         }
+
+        private void dgvRemedios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvRemedios.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Por favor, selecione um registro");
+                return;
+            }
+
+            int id = Convert.ToInt32(dgvRemedios.CurrentRow.Cells[0].Value);
+            RepositorioRemedios repositorio = new RepositorioRemedios();
+            Remedio remedio = repositorio.ObterPeloID(id);
+
+            AlterarProdutoRemedios alterarProdutoRemedio = new  AlterarProdutoRemedios(remedio);
+
+
+
+        }
     }
 }

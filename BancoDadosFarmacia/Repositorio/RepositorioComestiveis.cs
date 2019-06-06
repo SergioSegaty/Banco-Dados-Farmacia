@@ -100,7 +100,6 @@ namespace Repositorio
 
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
-            comando.ExecuteNonQuery();
             conexao.Close();
             for (int i = 0; i < tabela.Rows.Count; i++)
             {

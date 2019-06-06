@@ -57,6 +57,7 @@
             this.dgvRemedios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRemedios.Size = new System.Drawing.Size(497, 268);
             this.dgvRemedios.TabIndex = 0;
+            this.dgvRemedios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRemedios_CellDoubleClick);
             // 
             // ColumnId
             // 

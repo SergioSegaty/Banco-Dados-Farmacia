@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Model;
+using Repositorio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,16 +9,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Model;
-using Repositorio;
+
 
 namespace View.CadastroRemedios
 {
-    public partial class CadastroProdutoRemedios : Form
+    public partial class AlterarProdutoRemedios : Form
     {
-        public CadastroProdutoRemedios()
+        public AlterarProdutoRemedios()
         {
             InitializeComponent();
+        }
+
+        public AlterarProdutoRemedios(Remedio remedio)
+        {
+            lblID.Text = remedio.ID.ToString();
+            txtNome.Text = remedio.Nome;
+            txtPreco.Text = remedio.Preco.ToString();
+            cbCategoria.Text = remedio.Categoria;
+            cbFaixa.Text = remedio.Faixa;
+            if (remedio.Generico == true)
+            {
+                ckbGenerico.Checked = true;
+            }
+            if (remedio.Solido == true)
+            {
+                ckbSolido.Checked = true;
+            }
+            if (remedio.Receita == true)
+            {
+                ckbReceita.Checked = true;
+            }
+
+
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -29,6 +53,8 @@ namespace View.CadastroRemedios
             // Alocando Variaveis
 
             Remedio remedio = new Remedio();
+            // ID
+            remedio.ID = Convert.ToInt32(lblID.Text);
 
             // Nome
             if (txtNome.Text.Length < 3)
@@ -85,17 +111,13 @@ namespace View.CadastroRemedios
             remedio.Receita = ckbReceita.Checked;
 
 
-         
+
 
             remedio.ContraIndicacoes = rtbBula.Text;
 
             RepositorioRemedios repositorio = new RepositorioRemedios();
-            repositorio.InserirRegistro(remedio);
+            repositorio.AlterarRegistro(remedio);
             Close();
-
-
         }
-
-      
     }
 }
