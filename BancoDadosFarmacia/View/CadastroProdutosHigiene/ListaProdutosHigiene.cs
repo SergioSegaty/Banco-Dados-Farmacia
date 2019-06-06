@@ -19,12 +19,8 @@ namespace View.CadastroProdutosHigiene
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            SalvarRegistro();
+           
         }
 
-        private void SalvarRegistro()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

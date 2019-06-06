@@ -11,9 +11,9 @@ namespace Repositorio
 {
    public class RepositorioProdutosHigiene
     {
-        string CadeiaDeConexao = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\62110\Documents\ExemploDB02.mdf;Integrated Security=True;Connect Timeout=30";
+        string CadeiaDeConexao = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\user\Documents\Seek3r_Home.mdf;Integrated Security=True;Connect Timeout=30";
 
-        public void InserirRegistro()
+        public void InserirRegistro(ProdutoHigiene produto)
         {
             SqlConnection conexao = new SqlConnection();
             conexao.ConnectionString = CadeiaDeConexao;
@@ -24,13 +24,11 @@ namespace Repositorio
             comando.CommandText = @"INSERT INTO protudos_higiene 
             (nome, categoria, preco)
             VALUES
-            (@NOME, @CATEGORIA, @PRECO)";
+            (@NOME, @CATEGORIA, @PRECO)";            
 
-            ProdutoHigiene produtoHigiene = new ProdutoHigiene();
-
-            comando.Parameters.AddWithValue("@NOME", produtoHigiene.Nome);
-            comando.Parameters.AddWithValue("@CATEGORIA", produtoHigiene.Categoria);
-            comando.Parameters.AddWithValue("@PRECO", produtoHigiene.Preco);
+            comando.Parameters.AddWithValue("@NOME", produto.Nome);
+            comando.Parameters.AddWithValue("@CATEGORIA", produto.Categoria);
+            comando.Parameters.AddWithValue("@PRECO", produto.Preco);
 
             comando.ExecuteNonQuery();
             conexao.Close();

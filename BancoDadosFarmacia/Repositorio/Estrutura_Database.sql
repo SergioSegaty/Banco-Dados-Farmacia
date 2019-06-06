@@ -21,3 +21,4 @@ CREATE TABLE protudos_higiene (
 		preco DECIMAL(8,2)
 
 );
+SELECT * FROM protudos_higiene;
