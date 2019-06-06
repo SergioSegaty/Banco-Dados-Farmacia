@@ -14,11 +14,12 @@ SELECT * FROM comestiveis
 
 
 -- Tabela Produtos Higiene
-CREATE TABLE protudos_higiene (
+DROP TABLE protudos_higiene;
+CREATE TABLE produtos_higiene (
 		id INT PRIMARY KEY IDENTITY (1,1),
 		nome VARCHAR(100),
 		categoria VARCHAR(100),
 		preco DECIMAL(8,2)
 
 );
-SELECT * FROM protudos_higiene;
+SELECT * FROM produtos_higiene;
