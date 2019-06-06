@@ -106,7 +106,23 @@ namespace Repositorio
         }
         public void Atualizar(ProdutoHigiene produto)
         {
-            
+            SqlConnection conexao = new SqlConnection();
+            conexao.ConnectionString = CadeiaDeConexao;
+            conexao.Open();
+
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexao;
+            comando.CommandText = @"UPDATE produtos_higiene SET
+            nome = @NOME,
+            preco = @PRECO,
+            categoria = @CATEGORIA
+            WHERE id = @ID";
+            comando.Parameters.AddWithValue("@NOME", produto.Nome);
+            comando.Parameters.AddWithValue("@PRECO", produto.Preco);
+            comando.Parameters.AddWithValue("@CATEGORIA", produto.Categoria);
+            comando.Parameters.AddWithValue("@ID", produto.ID);
+            comando.ExecuteNonQuery();
+            conexao.Close();
         }
     }
 }

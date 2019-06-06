@@ -36,9 +36,7 @@ namespace View.CadastroProdutosHigiene
         private void AlterarRegistro()
         {
             ProdutoHigiene produto = new ProdutoHigiene();
-
-            lblID.Text = Convert.ToString(produto.ID);
-
+                        
             if (txtNome.Text.Length < 2)
             {
                 MessageBox.Show("Registre o nome do produto");
@@ -71,6 +69,8 @@ namespace View.CadastroProdutosHigiene
                 txtPreco.Focus();
                 return;
             }
+
+            produto.ID = Convert.ToInt32(lblID.Text);
 
             RepositorioProdutosHigiene repositorio = new RepositorioProdutosHigiene();
             repositorio.Atualizar(produto);

@@ -45,5 +45,17 @@ namespace View.CadastroProdutosHigiene
                 });
             }
         }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+
+            RepositorioProdutosHigiene repositorio = new RepositorioProdutosHigiene();
+            ProdutoHigiene produto = repositorio.ObterPeloId(id);
+
+            AlterarProdutoHigiene alterarProduto = new AlterarProdutoHigiene(produto);
+            alterarProduto.ShowDialog();
+
+        }
     }
 }
