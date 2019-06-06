@@ -21,7 +21,7 @@ namespace Repositorio
 
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexao;
-            comando.CommandText = @"INSERT INTO protudos_higiene 
+            comando.CommandText = @"INSERT INTO produtos_higiene 
             (nome, categoria, preco)
             VALUES
             (@NOME, @CATEGORIA, @PRECO)";            
