@@ -75,5 +75,26 @@ namespace View.CadastroRemedios
 
 
         }
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+            if (dgvRemedios.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Por favor selecione uma linha");
+                return;
+            }
+
+            int id = (int)dgvRemedios.CurrentRow.Cells[0].Value;
+
+            DialogResult resultado = MessageBox.Show("Deseja mesmo deletar?", "AVISO",
+                        MessageBoxButtons.YesNo);
+
+            if (resultado == DialogResult.Yes)
+            {
+                RepositorioRemedios repositorio = new RepositorioRemedios();
+                repositorio.Deletar(id);
+                AtualizarTabela();
+            }
+        }
     }
 }

@@ -112,6 +112,7 @@
             this.btnDeletar.TabIndex = 1;
             this.btnDeletar.Text = "Deletar";
             this.btnDeletar.UseVisualStyleBackColor = false;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
             // ListaProdutosRemedios
             // 
