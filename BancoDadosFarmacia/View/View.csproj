@@ -82,6 +82,18 @@
     <Compile Include="CadastroProdutosHigiene\ListaProdutosHigiene.Designer.cs">
       <DependentUpon>ListaProdutosHigiene.cs</DependentUpon>
     </Compile>
+    <Compile Include="CadastroRemedios\CadastroProdutoRemedios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroRemedios\CadastroProdutoRemedios.Designer.cs">
+      <DependentUpon>CadastroProdutoRemedios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastroRemedios\ListaProdutosRemedios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroRemedios\ListaProdutosRemedios.Designer.cs">
+      <DependentUpon>ListaProdutosRemedios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +119,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CadastroProdutosHigiene\ListaProdutosHigiene.resx">
       <DependentUpon>ListaProdutosHigiene.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroRemedios\CadastroProdutoRemedios.resx">
+      <DependentUpon>CadastroProdutoRemedios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroRemedios\ListaProdutosRemedios.resx">
+      <DependentUpon>ListaProdutosRemedios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
@@ -143,5 +161,6 @@
       <Name>Repositorio</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

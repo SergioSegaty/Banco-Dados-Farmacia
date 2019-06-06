@@ -30,7 +30,7 @@
         {
             this.btnComestiveis = new System.Windows.Forms.Button();
             this.bntHigiene = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnRemedios = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnComestiveis
@@ -53,22 +53,22 @@
             this.bntHigiene.UseVisualStyleBackColor = true;
             this.bntHigiene.Click += new System.EventHandler(this.bntHigiene_Click);
             // 
-            // button3
+            // btnRemedios
             // 
-            this.button3.Location = new System.Drawing.Point(33, 223);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(187, 77);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "button1";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnRemedios.Location = new System.Drawing.Point(33, 223);
+            this.btnRemedios.Name = "btnRemedios";
+            this.btnRemedios.Size = new System.Drawing.Size(187, 77);
+            this.btnRemedios.TabIndex = 0;
+            this.btnRemedios.Text = "Cadastro Remédios";
+            this.btnRemedios.UseVisualStyleBackColor = true;
+            this.btnRemedios.Click += new System.EventHandler(this.button3_Click);
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(254, 368);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnRemedios);
             this.Controls.Add(this.bntHigiene);
             this.Controls.Add(this.btnComestiveis);
             this.Name = "Principal";
@@ -82,6 +82,6 @@
 
         private System.Windows.Forms.Button btnComestiveis;
         private System.Windows.Forms.Button bntHigiene;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnRemedios;
     }
 }
