@@ -70,8 +70,8 @@ namespace View.CadastroRemedios
             RepositorioRemedios repositorio = new RepositorioRemedios();
             Remedio remedio = repositorio.ObterPeloID(id);
 
-            AlterarProdutoRemedios alterarProdutoRemedio = new  AlterarProdutoRemedios(remedio);
-
+            AlterarProdutoRemedios alterarProdutoRemedio = new AlterarProdutoRemedios(remedio);
+            alterarProdutoRemedio.ShowDialog();
 
 
         }

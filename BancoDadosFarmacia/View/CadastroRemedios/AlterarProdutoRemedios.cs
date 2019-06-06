@@ -22,6 +22,8 @@ namespace View.CadastroRemedios
 
         public AlterarProdutoRemedios(Remedio remedio)
         {
+            InitializeComponent();
+
             lblID.Text = remedio.ID.ToString();
             txtNome.Text = remedio.Nome;
             txtPreco.Text = remedio.Preco.ToString();
