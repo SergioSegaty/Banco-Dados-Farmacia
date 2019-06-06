@@ -64,6 +64,12 @@
     <Compile Include="CadastroComestiveis\ListaComestiveis.Designer.cs">
       <DependentUpon>ListaComestiveis.cs</DependentUpon>
     </Compile>
+    <Compile Include="CadastroProdutosHigiene\AlterarProdutoHigiene.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroProdutosHigiene\AlterarProdutoHigiene.Designer.cs">
+      <DependentUpon>AlterarProdutoHigiene.cs</DependentUpon>
+    </Compile>
     <Compile Include="CadastroProdutosHigiene\CadastroProdutoHigiene.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CadastroComestiveis\ListaComestiveis.resx">
       <DependentUpon>ListaComestiveis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroProdutosHigiene\AlterarProdutoHigiene.resx">
+      <DependentUpon>AlterarProdutoHigiene.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CadastroProdutosHigiene\CadastroProdutoHigiene.resx">
       <DependentUpon>CadastroProdutoHigiene.cs</DependentUpon>

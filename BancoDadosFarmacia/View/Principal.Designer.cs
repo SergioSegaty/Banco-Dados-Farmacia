@@ -71,6 +71,7 @@
             this.Controls.Add(this.bntHigiene);
             this.Controls.Add(this.btnComestiveis);
             this.Name = "Principal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
             this.ResumeLayout(false);
 

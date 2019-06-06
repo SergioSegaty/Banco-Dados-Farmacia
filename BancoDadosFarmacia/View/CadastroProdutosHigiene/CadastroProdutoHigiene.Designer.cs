@@ -67,6 +67,11 @@
             // cbCategoria
             // 
             this.cbCategoria.FormattingEnabled = true;
+            this.cbCategoria.Items.AddRange(new object[] {
+            "Shampoo & Condicionador",
+            "Skincare",
+            "Produtos Femininos",
+            "Higiene Dental"});
             this.cbCategoria.Location = new System.Drawing.Point(28, 102);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(133, 21);
@@ -78,7 +83,7 @@
             this.lblPreco.Location = new System.Drawing.Point(25, 144);
             this.lblPreco.Name = "lblPreco";
             this.lblPreco.Size = new System.Drawing.Size(35, 13);
-            this.lblPreco.TabIndex = 0;
+            this.lblPreco.TabIndex = 4;
             this.lblPreco.Text = "Preço";
             // 
             // txtPreco
@@ -86,7 +91,7 @@
             this.txtPreco.Location = new System.Drawing.Point(28, 161);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(133, 20);
-            this.txtPreco.TabIndex = 1;
+            this.txtPreco.TabIndex = 5;
             // 
             // btnSalvar
             // 
@@ -95,7 +100,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(196, 79);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(83, 48);
-            this.btnSalvar.TabIndex = 4;
+            this.btnSalvar.TabIndex = 6;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -106,7 +111,7 @@
             this.lblCodigo.Location = new System.Drawing.Point(109, 9);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(43, 13);
-            this.lblCodigo.TabIndex = 5;
+            this.lblCodigo.TabIndex = 7;
             this.lblCodigo.Text = "Código:";
             // 
             // lblID
@@ -115,7 +120,7 @@
             this.lblID.Location = new System.Drawing.Point(150, 9);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(13, 13);
-            this.lblID.TabIndex = 5;
+            this.lblID.TabIndex = 8;
             this.lblID.Text = "0";
             // 
             // CadastroProdutoHigiene
@@ -133,6 +138,7 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.lblNome);
             this.Name = "CadastroProdutoHigiene";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CadastroProdutoHigiene";
             this.ResumeLayout(false);
             this.PerformLayout();

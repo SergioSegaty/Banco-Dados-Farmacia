@@ -31,6 +31,11 @@ namespace View.CadastroComestiveis
             dtpDataVencimento.Value = comesestivel.DataVencimento;
         }
 
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            SalvarRegistro();
+        }
+
         private void SalvarRegistro()
         {
             Comestivel comestivel = new Comestivel();
@@ -104,9 +109,5 @@ namespace View.CadastroComestiveis
 
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
-        {
-            SalvarRegistro();
-        }
     }
 }

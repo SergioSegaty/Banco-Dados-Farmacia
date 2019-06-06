@@ -7,21 +7,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Model;
 using Repositorio;
+using Model;
 
 namespace View.CadastroProdutosHigiene
 {
-    public partial class CadastroProdutoHigiene : Form
+    public partial class AlterarProdutoHigiene : Form
     {
-        public CadastroProdutoHigiene()
+        public AlterarProdutoHigiene()
         {
             InitializeComponent();
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+        public AlterarProdutoHigiene(ProdutoHigiene produto)
+        {
+            InitializeComponent();
+            txtNome.Text = produto.Nome;
+            cbCategoria.Text = produto.Categoria;
+            txtPreco.Text = produto.Preco.ToString();
+            lblID.Text = produto.ID.ToString();
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            AlterarRegistro();
+        }
+
+        private void AlterarRegistro()
         {
             ProdutoHigiene produto = new ProdutoHigiene();
+
+            lblID.Text = Convert.ToString(produto.ID);
 
             if (txtNome.Text.Length < 2)
             {
@@ -57,9 +73,8 @@ namespace View.CadastroProdutosHigiene
             }
 
             RepositorioProdutosHigiene repositorio = new RepositorioProdutosHigiene();
-            repositorio.InserirRegistro(produto);
+            repositorio.Atualizar(produto);
             Close();
-
         }
     }
 }
