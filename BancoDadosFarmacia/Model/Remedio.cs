@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-   public class Remedios
+   public class Remedio
     {
         public int ID;
         public string Nome;

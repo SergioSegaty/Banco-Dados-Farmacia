@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace Repositorio
     public class RepositorioRemedios
     {
         string CadeiaDeConexao = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\62110\Documents\ExemploDB02.mdf;Integrated Security=True;Connect Timeout=30";
-        public void InserirRegistro(Remedios remedios)
+        public void InserirRegistro(Remedio remedios)
         {
             SqlConnection conexao = new SqlConnection();
             conexao.ConnectionString = CadeiaDeConexao;
@@ -20,7 +21,7 @@ namespace Repositorio
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexao;
             comando.CommandText = @"INSERT INTO produtos_remedios
-            (nome, categoria, faixa, contra_indicacao, preco, generico, solido, receita
+            (nome, categoria, faixa, contra_indicacao, preco, generico, solido, receita)
             
             VALUES
             (@NOME, @CATEGORIA, @FAIXA, @CONTRA_INDICACAO, @PRECO, @GENERICO, @SOLIDO, @RECEITA)";
@@ -37,6 +38,39 @@ namespace Repositorio
             comando.ExecuteNonQuery();
             conexao.Close();            
 
+        }
+
+        public List<Remedio> ObterTodos()
+        {
+
+            SqlConnection conexao = new SqlConnection();
+            conexao.ConnectionString = CadeiaDeConexao;
+            conexao.Open();
+
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexao;
+            comando.CommandText = @"SELECT * FROM produtos_remedios";
+
+            List<Remedio> remedios = new List<Remedio>();
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            for (int i = 0; i < tabela.Rows.Count; i++)
+            {
+                DataRow row = tabela.Rows[i];
+                Remedio remedio = new Remedio();
+
+                remedio.ID = Convert.ToInt32(row["id"]);
+                remedio.Nome = row["nome"].ToString();
+                remedio.Categoria = row["categoria"].ToString();
+                remedio.Faixa = row["faixa"].ToString();
+                remedio.Preco = Convert.ToDecimal(row["preco"]);
+                remedio.Receita = Convert.ToBoolean(row["receita"]);
+                remedio.Solido = Convert.ToBoolean(row["solido"]);
+                remedio.Generico = Convert.ToBoolean(row["generico"]);
+                remedio.ContraIndicacoes = row["contra_indicacao"].ToString();
+                remedios.Add(remedio);
+            }
+            return remedios;
         }
     }
 }

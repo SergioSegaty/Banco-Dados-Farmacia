@@ -37,3 +37,5 @@ CREATE TABLE produtos_remedios(
 		solido BIT,
 		receita BIT
 );
+
+SELECT * FROM produtos_remedios;
