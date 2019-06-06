@@ -57,5 +57,23 @@ namespace View.CadastroProdutosHigiene
             alterarProduto.ShowDialog();
 
         }
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+
+            RepositorioProdutosHigiene repositorio = new RepositorioProdutosHigiene();
+
+            DialogResult resultado = MessageBox.Show("Você tem certeza?", "AVISO",
+                MessageBoxButtons.YesNo);
+
+            if (resultado == DialogResult.Yes)
+            {
+                repositorio.Deletar(id);
+                AtualizarTabela();
+
+            }
+
+        }
     }
 }
